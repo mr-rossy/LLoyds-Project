@@ -11,7 +11,7 @@ def displayStockPerformance(start, end):
         filename, ext = os.path.splitext(f)
         if ext == '.csv':
             data = pd.read_csv(f)
-            fig, ax = plt.subplots(figsize=(24, 8))
+            fig = plt.figure(figsize=(24, 8))
             date = pd.to_datetime(data["Date"])
             plt.plot(date, data["Close"])
             plt.xlabel("Date", fontsize="16")  
@@ -20,16 +20,3 @@ def displayStockPerformance(start, end):
             plt.legend()
             fig.canvas.manager.set_window_title(filename + "'s Stock Performance")
             plt.show()
-
-    
-    '''data = pd.read_csv("BARC.L.csv")
-    plt.figure(figsize=(10,10))
-    plt.plot(data.index, data["Close"])
-    plt.xlabel("Date")
-    plt.ylabel("£price")
-    plt.title("")
-    plt.legend()
-    plt.show()'''
-'''    plt.plot(data["Date"], data['Close'])'''
-
-

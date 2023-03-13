@@ -7,11 +7,12 @@ end_date = '2021-12-31'
 
 # Set the ticker
 tickers = ['LLOY.L', 'NWG.L', 'BARC.L']
-
+standoutChanges = []
 
 def main():
     source.downloadData(tickers, start_date, end_date)
     transform.AddChangeInSharePrice()
+    standoutChanges = transform.GetBiggestDailyJump()
     display.displayStockPerformance(start_date, end_date)
 
 main()

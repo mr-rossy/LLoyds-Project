@@ -20,5 +20,3 @@ def downloadData(tickers, start_date, end_date):
             print("Write complete")
         except Exception as e:
             print("There was a problem sourcing data for {x}")
-
-downloadData(tickers, start_date, end_date)
