@@ -13,6 +13,6 @@ def main():
     source.downloadData(tickers, start_date, end_date)
     transform.AddChangeInSharePrice()
     standoutChanges = transform.GetBiggestDailyJump()
-    display.displayStockPerformance(start_date, end_date)
+    display.displayStockPerformance(start_date, end_date, standoutChanges)
 
 main()

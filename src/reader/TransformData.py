@@ -40,14 +40,3 @@ def GetBiggestDailyJump():
     return changes 
 
 
-
-
-        
-
-
-
-               
-
-    
-
-  

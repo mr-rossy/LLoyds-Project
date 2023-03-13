@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.dates import AutoDateFormatter, AutoDateLocator, date2num
 import os
 
-def displayStockPerformance(start, end):
+def displayStockPerformance(start, end, changes):
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
 
     for f in files:
@@ -16,7 +16,7 @@ def displayStockPerformance(start, end):
             plt.plot(date, data["Close"])
             plt.xlabel("Date", fontsize="16")  
             plt.ylabel("Price", fontsize="16")
-            plt.title("Stock Performance of " + filename + "on LSE between " + start + " and " + end)
+            plt.title("Stock Performance of " + filename + " on LSE between " + start + " and " + end)
             plt.legend()
             fig.canvas.manager.set_window_title(filename + "'s Stock Performance")
             plt.show()
