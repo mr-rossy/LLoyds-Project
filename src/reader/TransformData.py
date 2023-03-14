@@ -23,20 +23,29 @@ def GetBiggestDailyJump():
         filename, ext = os.path.splitext(f)
         if ext == '.csv':
             df = pd.read_csv(f)
-            biggestChange = 0.0
-            dateofChange = "2022/01/01"
+            largestDailyIncrease = 0.0
+            largestDailyDecrease = 0.0
+            dateofIncrease = "2022/01/01"
+            dateofDecrease = "2022/01/01"
             for index, row in df.iterrows():
-                
-                if abs(row["Change in Share Price"]) > biggestChange:
-                    biggestChange = row["Change in Share Price"]
-                    dateofChange = row["Date"]
-
-                    if row["Change in Share Price"] < 0:
-                        negativeNum = True
-                    else:
-                        negativeNum = False     
+                if row["Change in Share Price"] > 0:
+                    if index == 0:
+                        largestDailyIncrease = row["Change in Share Price"]
+                        dateofIncrease = row["Date"]
+                    elif row["Change in Share Price"] > largestDailyIncrease:
+                        largestDailyIncrease = row["Change in Share Price"]
+                        dateofIncrease = row["Date"]
+                                        
+                elif row["Change in Share Price"] < 0:
+                    if index == 0:
+                        largestDailyDecrease = row["Change in Share Price"]
+                        dateofDecrease = row["Date"]
+                    elif row["Change in Share Price"] < largestDailyDecrease:
+                        largestDailyDecrease = row["Change in Share Price"]
+                        dateofDecrease = row["Date"]
+  
             
-        changes.append([filename, biggestChange, negativeNum, dateofChange])
+        changes.append([filename, largestDailyDecrease, dateofDecrease, largestDailyIncrease, dateofIncrease])
     return changes 
 
 

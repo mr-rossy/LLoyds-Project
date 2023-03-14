@@ -14,5 +14,6 @@ def main():
     transform.AddChangeInSharePrice()
     standoutChanges = transform.GetBiggestDailyJump()
     display.displayStockPerformance(start_date, end_date, standoutChanges)
+    display.WriteKeyDetailsToFile(standoutChanges)
 
 main()
